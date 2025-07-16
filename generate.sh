@@ -65,7 +65,7 @@ curl https://core.telegram.org/resources/cidr.txt
 
 # UptimeRobot
 # https://uptimerobot.com/help/locations/
-curl https://uptimerobot.com/inc/files/ips/IPv4andIPv6.txt 
+curl https://uptimerobot.com/inc/files/ips/IPv4andIPv6.txt
 
 # Pingdom
 # https://documentation.solarwinds.com/en/success_center/pingdom/content/topics/pingdom-probe-servers-ip-addresses.htm
@@ -86,7 +86,7 @@ curl https://betteruptime.com/ips.txt
 
 # WebpagetestBot
 # https://www.webpagetest.org/addresses.php
-curl https://www.webpagetest.org/addresses.php?f=json |
+curl "https://www.webpagetest.org/addresses.php?f=json" |
  jq -r '.data[].addresses[] | select( . != null )'
 
 # BunnyCDN
