@@ -84,7 +84,7 @@ curl https://rssapi.net/ips.txt
 # https://docs.betteruptime.com/frequently-asked-questions
 curl https://betteruptime.com/ips.txt
 
-# WebpagetestBot
+# WebpagetestBot (cloudflare protected)
 # https://www.webpagetest.org/addresses.php
 curl "https://www.webpagetest.org/addresses.php?f=json" |
  jq -r '.data[].addresses[] | select( . != null )'
@@ -116,3 +116,11 @@ curl https://www.mojeek.com/mojeekbot.json |
 # https://help.qwant.com/bot
 curl https://help.qwant.com/wp-content/uploads/sites/2/2025/01/qwantbot.json |
   jq -r '.prefixes[].ipv6Prefix,.prefixes[].ipv4Prefix | select( . != null )'
+
+# Cookiebot (cloudflare protected)
+https://support.cookiebot.com/hc/en-us/articles/360003824153-Whitelisting-the-Cookiebot-scanner |
+ grep -oP '\b(?:\d{1,3}\.){3}\d{1,3}\b'
+
+# Pinterestbot
+# https://help.pinterest.com/en/business/article/pinterestbot
+echo 54.236.1.0/24
