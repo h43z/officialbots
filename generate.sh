@@ -86,8 +86,8 @@ curl https://betteruptime.com/ips.txt
 
 # WebpagetestBot (cloudflare protected)
 # https://www.webpagetest.org/addresses.php
-curl "https://www.webpagetest.org/addresses.php?f=json" |
- jq -r '.data[].addresses[] | select( . != null )'
+#curl "https://www.webpagetest.org/addresses.php?f=json" |
+# jq -r '.data[].addresses[] | select( . != null )'
 
 # BunnyCDN
 # https://support.bunny.net/hc/en-us/articles/115001131172-I-am-seeing-a-lot-of-502-and-504-errors
@@ -118,8 +118,8 @@ curl https://help.qwant.com/wp-content/uploads/sites/2/2025/01/qwantbot.json |
   jq -r '.prefixes[].ipv6Prefix,.prefixes[].ipv4Prefix | select( . != null )'
 
 # Cookiebot (cloudflare protected)
-https://support.cookiebot.com/hc/en-us/articles/360003824153-Whitelisting-the-Cookiebot-scanner |
- grep -oP '\b(?:\d{1,3}\.){3}\d{1,3}\b'
+#curl https://support.cookiebot.com/hc/en-us/articles/360003824153-Whitelisting-the-Cookiebot-scanner |
+# grep -oP '\b(?:\d{1,3}\.){3}\d{1,3}\b'
 
 # Pinterestbot
 # https://help.pinterest.com/en/business/article/pinterestbot
