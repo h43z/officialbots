@@ -84,7 +84,8 @@ curl https://rssapi.net/ips.txt
 # https://docs.betteruptime.com/frequently-asked-questions
 curl https://betteruptime.com/ips.txt
 
-# WebpagetestBot (cloudflare protected)
+# WebpagetestBot
+# cloudflare protected
 # https://www.webpagetest.org/addresses.php
 #curl "https://www.webpagetest.org/addresses.php?f=json" |
 # jq -r '.data[].addresses[] | select( . != null )'
@@ -117,10 +118,20 @@ curl https://www.mojeek.com/mojeekbot.json |
 curl https://help.qwant.com/wp-content/uploads/sites/2/2025/01/qwantbot.json |
   jq -r '.prefixes[].ipv6Prefix,.prefixes[].ipv4Prefix | select( . != null )'
 
-# Cookiebot (cloudflare protected)
-#curl https://support.cookiebot.com/hc/en-us/articles/360003824153-Whitelisting-the-Cookiebot-scanner |
-# grep -oP '\b(?:\d{1,3}\.){3}\d{1,3}\b'
+# Cookiebot
+# cloudflare protected and needs manual parsing
+# https://support.cookiebot.com/hc/en-us/articles/360003824153-Whitelisting-the-Cookiebot-scanner
 
 # Pinterestbot
+# needs manual parsing
 # https://help.pinterest.com/en/business/article/pinterestbot
 echo 54.236.1.0/24
+
+# Amazonbot
+# https://developer.amazon.com/amazonbot
+# test $IP = "$(host $IP | grep -o '[^ ]\+\.crawl\.amazonbot\.amazon\.$' | xargs -r host | awk '{print $NF}')"
+
+# barbar bot barkrowler
+# https://www.babbar.tech/crawler
+curl https://www.babbar.tech/barkrowler-ip-ranges.json |
+  jq -r '.prefixes[].ipv6Prefix,.prefixes[].ipv4Prefix | select( . != null )'
